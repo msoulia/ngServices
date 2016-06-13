@@ -38,16 +38,28 @@
         };
 
         /* jshint -W003*/
-        var includeVersionInTitle = true;
+        var includeVersionInTitle = false;
         this.setIncludeVersionInTitle = function (value) {
           includeVersionInTitle = value;
         };
       });
 
-  core.config(function(booksProvider, bookConstants) {
+  // NAMING CONVENTION!!! We created a 'books' provider above. ng automajically appends
+  // 'Provider' to create 'booksProvider'
+
+  // core.config(function(booksProvider, bookConstants) {
+  //   booksProvider.setIncludeVersionInTitle(true);
+  //   console.log('Title from book_constants service: ' + bookConstants.APP_TITLE);
+  // });
+
+  core.config(booksProviderConfig);
+
+  booksProviderConfig.$inject = ['booksProvider', 'bookConstants'];
+
+  function booksProviderConfig(booksProvider, bookConstants) {
     booksProvider.setIncludeVersionInTitle(true);
-    console.log('Title from book_constants service: ' + bookConstants.APP_TITLE);
-  });
+    console.log('Title from mangled book_constants service: ' + bookConstants.APP_TITLE);
+  }
 
   core.config(toastrConfig);
 

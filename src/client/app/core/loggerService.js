@@ -18,6 +18,7 @@
     };
   }
 
+  // This is a common js technique to implement inheritance
   BookAppLogger.prototype = Object.create(LoggerBase.prototype);
 
 }());
