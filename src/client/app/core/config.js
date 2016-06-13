@@ -22,22 +22,23 @@
   core.provider('books', function (bookConstants) {
         this.$get = function () {
 
-          var appName = 'title'; //bookConstants.APP_TITLE; //'Book Logger';
+          var appTitle = bookConstants.APP_TITLE; //'Book Logger';
           var appDesc = bookConstants.APP_DESC; //'Track your books';
-          var version = bookConstants.APP_VERSION; // '1.0';
+          var appVersion = bookConstants.APP_VERSION; // '1.0';
 
           if (includeVersionInTitle) {
-            appName += ' ' + version;
+            appTitle += ' ' + appVersion;
           }
 
           return {
-            appName: appName,
-            appDesc: appDesc
+            appTitle: appTitle,
+            appDesc: appDesc,
+            appVersion: appVersion
           };
         };
 
         /* jshint -W003*/
-        var includeVersionInTitle = false;
+        var includeVersionInTitle = true;
         this.setIncludeVersionInTitle = function (value) {
           includeVersionInTitle = value;
         };

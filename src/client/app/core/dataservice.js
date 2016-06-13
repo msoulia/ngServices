@@ -17,6 +17,7 @@
 
     return service;
 
+    /* jshint -W106 */
     function getAllBooks() {
       return [
         { book_id: 1, title: 'Book_1', author: 'Author_1', year_published: 1960},
